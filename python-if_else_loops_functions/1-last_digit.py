@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import random
-number = rnadom.randint(-10000, 10000)
+number = random.randint(-10000, 10000)
 
 last_digit = number % 10
 
