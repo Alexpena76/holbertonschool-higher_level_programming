@@ -1,0 +1,75 @@
+The ``2-matrix_divided`` module
+======================
+
+Using ``matrix_divided``
+-------------------
+
+Importing the function from the module:
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Basic matrix division:
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix_divided(matrix, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Original matrix unchanged:
+    >>> matrix
+    [[1, 2, 3], [4, 5, 6]]
+
+Division by float:
+    >>> matrix_divided([[2, 4], [6, 8]], 2.5)
+    [[0.8, 1.6], [2.4, 3.2]]
+
+Division by negative number:
+    >>> matrix_divided([[10, -20], [30, -40]], -5)
+    [[-2.0, 4.0], [-6.0, 8.0]]
+
+Single element matrix:
+    >>> matrix_divided([[5]], 2)
+    [[2.5]]
+
+Float elements in matrix:
+    >>> matrix_divided([[1.5, 2.5], [3.5, 4.5]], 2)
+    [[0.75, 1.25], [1.75, 2.25]]
+
+Error cases - Division by zero:
+    >>> matrix_divided([[1, 2], [3, 4]], 0)
+    Traceback (most recent call last):
+        ...
+    ZeroDivisionError: division by zero
+
+Error cases - Non-numeric divisor:
+    >>> matrix_divided([[1, 2], [3, 4]], "2")
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+
+Error cases - Non-matrix argument:
+    >>> matrix_divided("not a matrix", 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Error cases - Matrix with non-list rows:
+    >>> matrix_divided([1, 2, 3], 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Error cases - Matrix with non-numeric elements:
+    >>> matrix_divided([[1, "2"], [3, 4]], 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Error cases - Matrix with different row sizes:
+    >>> matrix_divided([[1, 2, 3], [4, 5]], 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: Each row of the matrix must have the same size
+
+Error cases - Empty matrix:
+    >>> matrix_divided([], 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
