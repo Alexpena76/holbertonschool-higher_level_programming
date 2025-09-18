@@ -15,43 +15,50 @@ def matrix_divided(matrix, div):
     # Check if matrix is a list
     if not isinstance(matrix, list) or len(matrix) == 0:
         raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
-
+    
     # Check if div is a number
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
-
+    
     # Check for division by zero
     if div == 0:
         raise ZeroDivisionError("division by zero")
-
+    
+    # Check for NaN in divisor (but allow infinity)
+    if isinstance(div, float) and div != div:  # NaN check
+        raise TypeError("div must be a number")
+    
     # Check if matrix is a list of lists with same size and valid elements
     row_size = None
     for row in matrix:
         # Check if each row is a list
         if not isinstance(row, list):
             raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
-
+        
         # Check if row is empty
         if len(row) == 0:
             raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
-
+        
         # Set row size from first row or check consistency
         if row_size is None:
             row_size = len(row)
         elif len(row) != row_size:
             raise TypeError("Each row of the matrix must have the same size")
-
-        # Check if all elements in row are numbers
+        
+        # Check if all elements in row are numbers (but reject NaN and infinity in matrix)
         for element in row:
             if not isinstance(element, (int, float)):
                 raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
-
+            if isinstance(element, float) and (element != element or element == float('inf') or element == float('-inf')):
+                raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+    
     # Create new matrix with divided elements
     new_matrix = []
     for row in matrix:
         new_row = []
         for element in row:
-            new_row.append(round(element / div, 2))
+            result = element / div
+            new_row.append(round(result, 2))
         new_matrix.append(new_row)
-
+    
     return new_matrix
