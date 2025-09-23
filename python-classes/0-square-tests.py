@@ -12,5 +12,10 @@ class TestSquare(unittest.TestCase):
         square = Square()
         self.assertIsInstance(square, Square)
 
+    def test_square_type(self):
+        """Test the type of Square instance"""
+        square = Square()
+        self.assertEqual(type(square).__name__, 'Square')
+
 if __name__ == '__main__':
     unittest.main()
