@@ -13,5 +13,10 @@ class TestSquare(unittest.TestCase):
         self.assertTrue(hasattr(square, 'area'))
         self.assertTrue(callable(square.area))
 
+    def test_area_calculation_basic(self):
+        """Test basic area calculations"""
+        square = Square(3)
+        self.assertEqual(square.area(), 9)
+
 if __name__ == '__main__':
     unittest.main()
