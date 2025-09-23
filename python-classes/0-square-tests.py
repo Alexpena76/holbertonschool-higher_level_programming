@@ -17,5 +17,10 @@ class TestSquare(unittest.TestCase):
         square = Square()
         self.assertEqual(type(square).__name__, 'Square')
 
+    def test_square_empty_dict(self):
+        """Test that Square instance has empty __dict__"""
+        square = Square()
+        self.assertEqual(square.__dict__, {})
+
 if __name__ == '__main__':
     unittest.main()
