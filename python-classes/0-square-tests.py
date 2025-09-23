@@ -22,5 +22,10 @@ class TestSquare(unittest.TestCase):
         square = Square()
         self.assertEqual(square.__dict__, {})
 
+    def test_multiple_instances(self):
+        """Test creating multiple Square instances"""
+        square1 = Square()
+        square2 = Square()
+
 if __name__ == '__main__':
     unittest.main()
