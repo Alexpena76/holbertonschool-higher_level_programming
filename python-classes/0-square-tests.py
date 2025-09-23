@@ -39,5 +39,10 @@ class TestSquare(unittest.TestCase):
         """Test that Square class belongs to the correct module"""
         self.assertEqual(Square.__module__, '0-square')
 
+    def test_square_docstring(self):
+        """Test that Square class has a docstring"""
+        self.assertIsNotNone(Square.__doc__)
+        self.assertIsInstance(Square.__doc__, str)
+
 if __name__ == '__main__':
     unittest.main()
