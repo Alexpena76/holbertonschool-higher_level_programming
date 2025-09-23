@@ -35,5 +35,9 @@ class TestSquare(unittest.TestCase):
         """Test that Square is actually a class"""
         self.assertTrue(isinstance(Square, type))
 
+    def test_square_module(self):
+        """Test that Square class belongs to the correct module"""
+        self.assertEqual(Square.__module__, '0-square')
+
 if __name__ == '__main__':
     unittest.main()
