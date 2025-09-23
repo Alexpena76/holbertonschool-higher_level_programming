@@ -27,5 +27,9 @@ class TestSquare(unittest.TestCase):
         square1 = Square()
         square2 = Square()
 
+        self.assertIsNot(square1, square2)
+
+        self.assertEqual(type(square1), type(square2))
+
 if __name__ == '__main__':
     unittest.main()
