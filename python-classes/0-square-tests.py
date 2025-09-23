@@ -31,5 +31,9 @@ class TestSquare(unittest.TestCase):
 
         self.assertEqual(type(square1), type(square2))
 
+    def test_square_is_class(self):
+        """Test that Square is actually a class"""
+        self.assertTrue(isinstance(Square, type))
+
 if __name__ == '__main__':
     unittest.main()
