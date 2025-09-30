@@ -1,0 +1,83 @@
+>>> MyList = __import__('1-my_list').MyList
+
+# Test basic functionality
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+
+# Test with negative numbers
+>>> my_list2 = MyList()
+>>> my_list2.append(-1)
+>>> my_list2.append(4)
+>>> my_list2.append(-5)
+>>> my_list2.append(3)
+>>> my_list2.print_sorted()
+[-5, -1, 3, 4]
+
+# Test with empty list
+>>> my_list3 = MyList()
+>>> my_list3.print_sorted()
+[]
+
+# Test with one element
+>>> my_list4 = MyList()
+>>> my_list4.append(5)
+>>> my_list4.print_sorted()
+[5]
+
+# Test with duplicate elements
+>>> my_list5 = MyList()
+>>> my_list5.append(3)
+>>> my_list5.append(1)
+>>> my_list5.append(3)
+>>> my_list5.append(2)
+>>> my_list5.print_sorted()
+[1, 2, 3, 3]
+
+# Test that original list is not modified
+>>> my_list6 = MyList([5, 3, 1, 4, 2])
+>>> my_list6.print_sorted()
+[1, 2, 3, 4, 5]
+>>> print(my_list6)
+[5, 3, 1, 4, 2]
+
+# Test inheritance from list
+>>> my_list7 = MyList()
+>>> isinstance(my_list7, list)
+True
+>>> isinstance(my_list7, MyList)
+True
+
+# Test with already sorted list
+>>> my_list8 = MyList([1, 2, 3, 4, 5])
+>>> my_list8.print_sorted()
+[1, 2, 3, 4, 5]
+
+# Test with reverse sorted list
+>>> my_list9 = MyList([5, 4, 3, 2, 1])
+>>> my_list9.print_sorted()
+[1, 2, 3, 4, 5]
+
+# Test module docstring
+>>> module_doc = __import__('1-my_list').__doc__
+>>> len(module_doc) > 1
+True
+
+# Test class docstring
+>>> class_doc = __import__('1-my_list').MyList.__doc__
+>>> len(class_doc) > 1
+True
+
+# Test method docstring
+>>> method_doc = __import__('1-my_list').MyList.print_sorted.__doc__
+>>> len(method_doc) > 1
+True
