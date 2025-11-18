@@ -5,3 +5,4 @@ fetch('https://swapi-api.hbtn.io/api/people/5/?format=json')
     // Display the character name in the element with id 'character'
     document.querySelector('#character').textContent = data.name;
   });
+  
